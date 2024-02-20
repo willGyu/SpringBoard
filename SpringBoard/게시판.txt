@@ -15,4 +15,46 @@ p83.  커넥션풀 : 디비 연결정보를 미리 생성 / 대여
 
 
 
+CREATE TABLE `springdb`.`tbl_board` (
+  `bno` INT NOT NULL AUTO_INCREMENT,
+  `title` VARCHAR(100) NOT NULL,
+  `content` TEXT NULL,
+  `writer` VARCHAR(50) NOT NULL,
+  `viewcnt` INT NULL DEFAULT 0,
+  `regdate` TIMESTAMP NOT NULL DEFAULT now(),
+  PRIMARY KEY (`bno`));
+  
+  
+  
+  * 프로젝트 패키지 구조
+    
+   - 계층형 구조 : 각각의 객체 별로 따로관리 (Controller,Service,Persistence)
+      장점 : 프로젝트에 대한 이해도가 낮음 => 구조파악이 쉬움
+      단점 : 클래스가 많아지면 복잡, 모듈별로 분리가 어려움
+      
+      => 프로젝트의 복잡도가 낮고,기능이 적은 프로젝트
+          기능을 특정 기준을 바탕으로 구분하기 어려운경우
+          해당기능을 별도의 모듈로 분리할 가능성이 없는경우 
+   
+   - 도메인형 구조 : 도메인을 중심으로 따로관리 (Member.Controller,Member.Service.Member.Persistence)
+      장점 : 모듈별로 구분이 쉬움(즉, 분리가 쉬움)
+      단점 : 프로젝트에 대한 이해도가 낮으면, 구조파악이 힘듦
+             개인적인 성향에 따른 구분(기준모호하다)
+             * 패키지간의 순환참조 가능성 있음
+       
+       => 프로젝트의 복잡도가 높고, 하나의 계층에 포함되는 클래스가 많은경우
+          기능별로 명확한 구분이 가능한 경우, 추후에 별도로 모듈 분리가 가능한경우 
+             
+   
+   
+  
+  
+  
+  
+  
+  
+
+
+
+
    
