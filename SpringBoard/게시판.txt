@@ -47,8 +47,32 @@ CREATE TABLE `springdb`.`tbl_board` (
              
    
    
-  
-  
+   * 컨트롤러 설계
+   - 공통적인 URI의 경로/ 각 기능별 URI 경로 
+   - 각 URI의 호출방법 (GET/POST)
+   - 각 기능별 결과처리(뷰 출력, 리다이렉트)
+   - 예외페이지
+   
+   => 컨트롤러를 구분하는 기준은 도메인객체(디비 테이블)
+   
+  ----------------------------------------------------------------------- 
+  공통 URI : /board  or /boards
+  호출방식 :  GET - 사용자 정보입력, 조회, 출력
+              POST - 데이터를 처리(쓰기,수정,삭제)
+              
+  기능별 URI : 
+           글쓰기GET : /board/register
+           글쓰기POST : /board/register
+           리스트GET : /board/list
+           본문읽기GET : /board/read?bno=000
+           본문수정GET : /board/modify?bno=000
+           본문수정POST : /board/modify
+           본문삭제POST : /board/remove?bno=000
+              
+              
+              
+              
+   
   
   
   
