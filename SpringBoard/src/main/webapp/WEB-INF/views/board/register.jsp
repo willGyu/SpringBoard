@@ -15,16 +15,20 @@
 	<form role="form" method="post">
 		<div class="box-body">
 			<div class="form-group">
-				<label for="exampleInputEmail1">제 목</label> <input type="text" class="form-control" id="exampleInputEmail1" placeholder="제목을 작성하세요!">
+				<label for="exampleInputEmail1">제 목</label>
+				<input type="text" class="form-control" name="title"
+				  id="exampleInputEmail1" placeholder="제목을 작성하세요!">
 			</div>
 
 			<div class="form-group">
-				<label>이 름</label> <input type="text" class="form-control" placeholder="이름을 입력하세요">
+				<label>이 름</label>
+				<input type="text" class="form-control" name="writer"
+				 placeholder="이름을 입력하세요">
 			</div>
 
 			<div class="form-group">
 				<label>내 용</label>
-				<textarea class="form-control" rows="3" 
+				<textarea class="form-control" rows="3" name="content"
 				           placeholder="내용을 입력하시오"></textarea>
 			</div>
 
