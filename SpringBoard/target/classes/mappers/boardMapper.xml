@@ -9,6 +9,11 @@
 	   insert into tbl_board(title,writer,content) 
 	   values(#{title},#{writer},#{content})	
 	</insert>
+	
+	<!-- 글목록조회 -->
+	<select id="selectBoardList" resultType="BoardVO">
+	  select * from tbl_board order by regdate desc	
+	</select>
 
 
 
