@@ -14,6 +14,12 @@
 	<select id="selectBoardList" resultType="BoardVO">
 	  select * from tbl_board order by regdate desc	
 	</select>
+	
+	<!-- 글 조회 -->
+	<select id="selectBoard" resultType="BoardVO">
+		select * from tbl_board 
+		where bno = #{bno}		
+	</select>
 
 
 
