@@ -139,6 +139,32 @@ public class BoardController {
 	 }
 	
 	
+	// 본문삭제POST : /board/remove   + (post)bno=000
+	@RequestMapping(value = "/remove",method = RequestMethod.POST)
+	public String removePOST(@RequestParam("bno")int bno ) throws Exception {
+		logger.debug(" /board/remove -> removePOST() 호출 ");
+		
+		// 전달정보 저장 bno
+		logger.debug(" bno : "+bno);
+		
+		// 서비스 -> DAO 게시판글 삭제 동작
+		bService.removeBoard(bno);
+		
+		try {
+			// 예외가 발생할지도 모르는 코드
+		} catch (Exception e) {
+			// 예외 처리-출력
+		}
+		
+		// 페이지 이동 ( /board/list )		
+		return "redirect:/board/list";
+	}
+	
+	
+	
+	
+	
+	
 	
 	
 	

@@ -67,6 +67,17 @@ viewUpdateStatus : ${viewUpdateStatus }
 			formObj.submit();			
 		});
 		
+		// '삭제하기' 버튼 클릭시
+		$('.btn-warning').click(function(){
+			alert(" 삭제하기 버튼 클릭! ");
+			formObj.attr("action","/board/remove");
+			formObj.attr("method","post");
+			formObj.submit();
+		});
+		
+		
+		
+		
 		//alert("Test");
 		// '목록이동' 버튼 클릭시
 		$(".btn-success").click(function(){
