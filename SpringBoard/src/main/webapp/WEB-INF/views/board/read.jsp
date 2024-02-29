@@ -2,16 +2,19 @@
 
 <%@include file="../include/header.jsp"%>
 
+viewUpdateStatus : ${viewUpdateStatus }
 <div class="content">
 
 	<h1>read.jsp</h1>
+	<form role="form" action="" method="get" class="fm">
+	   <input type="hidden" name="bno" value="${vo.bno }">
+	</form>
+	
 
 	<div class="box box-primary">
 		<div class="box-header with-border">
 			<h3 class="box-title">게시판 본문내용</h3>
 		</div>
-
-
 		
 			<div class="box-body">
 				<div class="form-group">
@@ -50,6 +53,19 @@
 <!-- JQuery라이브러리 추가( include/header.jsp 파일에 추가되어있음 ) -->
 <script>
 	$(document).ready(function(){
+		
+		// bno를 저장하는 폼태그 정보
+		//console.log( $("form[role='form']") );
+		//console.log( $(".fm") );
+		var formObj = $("form[role='form']");
+		
+		
+		// '수정하기' 버튼 클릭시 
+		$(".btn-danger").click(function(){
+			alert(" 수정하기 버튼 클릭 ! ");
+			formObj.attr("action","/board/modify");
+			formObj.submit();			
+		});
 		
 		//alert("Test");
 		// '목록이동' 버튼 클릭시

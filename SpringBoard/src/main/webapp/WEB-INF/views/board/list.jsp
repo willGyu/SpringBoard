@@ -4,7 +4,7 @@
 <%@ include file="../include/header.jsp"%>
 
 <%-- ${boardList.size() } --%>
-
+viewUpdateStatus : ${viewUpdateStatus }
 <div class="content">
 
 	<div class="box">

@@ -20,5 +20,10 @@ public interface BoardService {
 	// 글 정보 조회 동작
 	public BoardVO read(Integer bno) throws Exception;
 	
+	// 글 조회수 1증가 동작
+	public void updateViewcnt(Integer bno) throws Exception;
+	
+	// 글 내용 수정 동작
+	public void modifyBoard(BoardVO vo) throws Exception;
 
 }

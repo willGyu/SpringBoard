@@ -4,6 +4,18 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
  
 <mapper namespace="com.itwillbs.mapper.BoardMapper">
+
+	<!-- 테이블의 정보 설정 -->
+	<resultMap type="com.itwillbs.domain.BoardVO" id="board">
+		<result property="bno" column="bno" />
+		<result property="title" column="title"/>
+		<result property="writer" column="writer"/>
+		<result property="content" column="content"/>
+		<result property="viewcnt" column="viewcnt"/>
+		<result property="regdate" column="regdate"/>
+	</resultMap>
+
+
 	
 	<insert id="createBoard">
 	   insert into tbl_board(title,writer,content) 
@@ -16,11 +28,22 @@
 	</select>
 	
 	<!-- 글 조회 -->
-	<select id="selectBoard" resultType="BoardVO">
+	<select id="selectBoard" resultType="BoardVO" resultMap="board">
 		select * from tbl_board 
 		where bno = #{bno}		
 	</select>
+	
+	<!-- 글 조회수 1증가 -->
+	<update id="updateViewcnt">
+		update tbl_board set viewcnt = viewcnt + 1 
+		where bno = #{bno}	
+	</update>
 
+	<!-- 글 정보 수정 -->
+	<update id="updateBoard" >
+	   update tbl_board set title=#{title},writer=#{writer},content=#{content} 
+	   where bno = #{bno}	 	
+	</update>
 
 
 </mapper> 
