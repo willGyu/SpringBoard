@@ -51,6 +51,33 @@
 		where bno = #{bno}	
 	</delete>
 	
+	<!-- 글 목록 조회(페이징처리) -->
+	<select id="selectBoardListPage" resultType="BoardVO">
+	  <![CDATA[
+	  select * from tbl_board  
+	  where bno > 0 
+	  order by bno desc, regdate desc	
+	  limit #{page},10
+	  ]]>
+	</select>
+	
+	<!-- 글 목록 조회(페이징처리-Cri) -->
+	<select id="selectBoardListCri" resultType="BoardVO">
+	  <![CDATA[
+	  select * from tbl_board  
+	  where bno > 0 
+	  order by bno desc, regdate desc	
+	  limit #{startPage},#{pageSize}
+	  ]]>
+	</select>
+	
+	
+	<!-- 총 글의 개수 -->
+	<select id="totalCount" resultType="int">
+		select count(bno) from tbl_board
+	</select>
+	
+	
 
 
 </mapper> 

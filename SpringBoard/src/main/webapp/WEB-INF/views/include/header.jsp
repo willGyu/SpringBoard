@@ -319,7 +319,7 @@
               </a>
               <ul class="treeview-menu">
                 <li><a href="/board/register"><i class="fa fa-circle-o"></i> 글쓰기 </a></li>
-                <li><a href="/board/list"><i class="fa fa-circle-o"></i> 글 목록 </a></li>
+                <li><a href="/board/listCri"><i class="fa fa-circle-o"></i> 글 목록 </a></li>
               </ul>
             </li>
             <li class="treeview">

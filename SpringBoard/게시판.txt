@@ -143,13 +143,55 @@ CREATE TABLE `springdb`.`tbl_board` (
    - weaving: advice를 주기능에 적용하는것 
    
    
-   
+  * 페이징처리
+   1) 원하는 만큼 글을 화면에 보여주기
+   2) 페이지 하단에 페이징처리 블럭 
+   3) 본문/수정/삭제 처리 이후에 원래 페이지로 이동
   
-  
-  
+  * 페이징처리 원칙
+   - 반드시 GET으로만 처리 (URL에 데이터 전달)
+   - 조회화면에서 반드시 목록으로 이동하는 버튼 필요
+   - 본문 조회전 페이지를 처리후에도 계속해서 유지    
   
 
-
+	
+	-- 자가복사 (더미 생성)
+	insert into tbl_board (title, content,writer) 
+	(select title,content,writer from tbl_board);
+	
+	
+	* 페이징처리 하단 블럭
+	
+	- 끝 페이지 번호(endPage) 
+	    (int)(Math.ceil(page/페이지블럭수) * 페이지블럭수)
+	    
+	- 시작 페이지 번호(startPage)
+	    (endPage - 페이지블럭수) + 1
+	    
+	- 전체 글 개수 (totalCount)
+	
+	- 이전으로 이동(prev)
+	    startPage == 1? false : true
+	    startPage != 1
+	    
+	- 다음으로 이동(next)    	     
+	    endPage * pageSize >= totalCount? false : true
+	    endPage * pageSize < totalCount
+	    
+	    
+   Q. 한페이지에 10개씩 출력, 총 122개 , 페이지블럭의 수 10개
+     page번호 3 : startpage - 1 endPage - 10 prev - false next - true
+     page번호 10 : startpage - 1  endPage - 10  prev - false next - true
+     page번호 11 : startpage - 11  endPage - 20  prev - true next - false  
+     
+	
+	
+	
+	
+	
+	
+	
+	
 
 
    
